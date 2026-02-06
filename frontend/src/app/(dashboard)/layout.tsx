@@ -11,12 +11,14 @@ export default function DashboardLayout({
       <Sidebar />
 
       <div className="flex flex-col flex-1">
-        <TopBarMobile/>
-      </div>
+        <TopBarMobile />
 
-      <main className="flex-1 p-6 bg-primary-3">
-        {children}
-      </main>
+        <main className="flex-1 p-6 bg-primary-3 flex justify-center">
+          <div className="w-full max-w-6xl">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
