@@ -66,10 +66,10 @@ export default function Sidebar() {
             borderWidth: 0,
             overflowX: "hidden",
             overflowY: "hidden",
-            backgroundColor: "#0f172a",
+            backgroundColor: "var(--color-primary-1)",
             color: "#fff",
-            borderRight: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "4px 2px 5px rgba(0,0,0,0.15)",
+            borderRight: "4px solid var(--color-primary-2)",
+            boxShadow: "6px 0px 20px rgba(0,0,0,0.15)",
           },
         }}
         slotProps={{

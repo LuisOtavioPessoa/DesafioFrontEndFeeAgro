@@ -6,10 +6,12 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary-1: #16A34A; /* Verde principal */
+  --color-primary-2: #14532D; /* Verde secundário */
+  --color-primary-3: #F1F5F9; /* Fundo cinza */
+  --color-primary-4: #0F172A; /* Texto */
+
 }
 
 @media (prefers-color-scheme: dark) {
