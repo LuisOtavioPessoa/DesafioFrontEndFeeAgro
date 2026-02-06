@@ -1,4 +1,14 @@
-export const transacao = [
+export type Transaction = {
+  id: string;
+  date: string;
+  description: string;
+  type: "IN" | "OUT";
+  amount: number;
+  status: "Concluída" | "Pendente" | "Cancelada";
+};
+
+
+export const transacao: Transaction[] = [
   { id: "T001", 
     date: "2026-02-06", 
     description: "Depósito via PIX", 

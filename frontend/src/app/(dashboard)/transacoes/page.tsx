@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import { transacao } from "@/app/core/data/transacao";
+import { transacao, Transaction } from "@/app/core/data/transacao";
+import ModalTransacao from "@/app/components/transacoes/ModalTransacao";
 
 export default function Transacoes() {
 
@@ -9,12 +10,25 @@ const [filterType, setFilterType] = useState("Todos");
 const [filterStatus, setFilterStatus] = useState("Todos");
 const [filterPeriod, setFilterPeriod] = useState("Últimos 7 dias");
 
+const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
+const [openModalTransacao, setopenModalTransacao] = useState(false);
+
 const filteredTransactions = transacao.filter(tx => {
     const typeMatch = filterType === "Todos" || tx.type === filterType;
     const statusMatch = filterStatus === "Todos" || tx.status === filterStatus;
 
     return typeMatch && statusMatch;
 });
+
+function handleOpenModal(tx: Transaction){
+    setSelectedTransaction(tx);
+    setopenModalTransacao(true);
+}
+
+function handleCloseModal(){
+    setSelectedTransaction(null);
+    setopenModalTransacao(false);
+}
 
   return (
     <main className='flex items-start  bg-primary-3 min-h-svh p-4 pb-8'>
@@ -61,19 +75,28 @@ const filteredTransactions = transacao.filter(tx => {
             {filteredTransactions.map(tx => (
                 <div
                     key={tx.id}
-                    className="flex items-center min-w-[350px] min-h-[100px] justify-between p-4 bg-white rounded-lg shadow hover:shadow-md transition"
+                    className="relative flex items-center min-w-[350px] min-h-[100px] justify-between p-4  bg-white rounded-lg shadow hover:shadow-md transition gap-3"
+                    onClick={() => handleOpenModal(tx)}
                 >
+                    <span className="absolute top-2 left-4 text-xs text-gray-500">
+                        {tx.date}
+                    </span>
+
                     <div className="flex flex-col">
-                        <span className="text-sm text-gray-500">{tx.date}</span>
-                        <span className="font-semibold text-primary-4">{tx.description}</span>
+                        <span className="font-semibold text-primary-4  text-[16px] max-w-[130px]">
+                            {tx.description}
+                        </span>
+                        
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <span className={tx.type === "IN" ? "text-green-600 font-bold" : "text-red-600 font-bold"}>
+                        <span className={tx.type === "IN" 
+                            ? "text-green-600 font-bold" 
+                            : "text-red-600 font-bold"}>
                             {tx.type === "IN" ? "+" : "-"} R$ {tx.amount}
                         </span>
                         <span className={
-                        `px-2 py-1 rounded-full text-xs font-semibold
+                        `px-2 py-1 rounded-[5px] text-xs font-semibold
                             ${tx.status === "Concluída" ? "bg-green-200 text-green-800" : ""}
                             ${tx.status === "Pendente" ? "bg-yellow-200 text-yellow-800" : ""}
                             ${tx.status === "Cancelada" ? "bg-red-200 text-red-800" : ""}
@@ -84,6 +107,11 @@ const filteredTransactions = transacao.filter(tx => {
                 </div>
             ))}
         </div>
+            <ModalTransacao
+            open={openModalTransacao}
+            onClose={handleCloseModal}
+            transaction={selectedTransaction}
+            />
       </div>
     </main>
   );
