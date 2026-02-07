@@ -1,4 +1,4 @@
-export const operacao= [
+export const operacoes = [
   {  toAddress: "0xABCD1234",
      amount: 500, 
      memo: "Investimento em soja", 
