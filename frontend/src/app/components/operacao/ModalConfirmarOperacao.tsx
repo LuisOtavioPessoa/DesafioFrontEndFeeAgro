@@ -1,26 +1,26 @@
 "use client";
 
-interface TransacaoProps {
-    id: string;
-    date: string;
-    description: string;
-    type: string;
-    amount: number;
-    status: string;
+interface OperacaoProps {
+    toAddress: string;
+    amount: string;
+    memo: string;
+    network?: string;
+    onConfirm?: () => void;
 }
 
-interface ModalTransacaoProps {
+interface ModalConfirmarOperacaoProps {
     open: boolean;
     onClose: () => void;
-    transaction: TransacaoProps | null;
+    operacao: OperacaoProps | null;
 }
 
-export default function ModalTransacao({
+export default function ModalConfirmarOperacao({
     open,
     onClose,
-    transaction,
-}: ModalTransacaoProps){
-    if (!open || !transaction) return null;
+    operacao,
+}: ModalConfirmarOperacaoProps){
+
+    if (!open || !operacao) return null;
 
     return (
     <div
@@ -33,7 +33,7 @@ export default function ModalTransacao({
       >
         <div className="flex justify-between items-center">
           <h2 className="text-[20px] font-bold text-primary-4">
-            Detalhes da Transação
+            Detalhes da Operação
           </h2>
 
           <button
@@ -46,37 +46,32 @@ export default function ModalTransacao({
 
         <div className="flex flex-col gap-2 text-sm text-primary-4">
           <p>
-            <span className="font-semibold">ID:</span> {transaction.id}
+            <span className="font-semibold">Beneficiário:</span> {operacao.toAddress}
           </p>
 
           <p>
-            <span className="font-semibold">Data:</span> {transaction.date}
+            <span className="font-semibold">Valor:</span> R${operacao.amount}
           </p>
 
           <p>
-            <span className="font-semibold">Descrição:</span>{" "}
-            {transaction.description}
+            <span className="font-semibold">Descrição:</span> {operacao.memo}
           </p>
 
-          <p>
-            <span className="font-semibold">Tipo:</span>{" "}
-            {transaction.type === "IN" ? "Entrada" : "Saída"}
-          </p>
-
-          <p>
-            <span className="font-semibold">Valor:</span> R$ {transaction.amount}
-          </p>
-
-          <p>
-            <span className="font-semibold">Status:</span> {transaction.status}
-          </p>
+          {operacao.network && (
+            <p>
+              <span className="font-semibold">Network:</span> {operacao.network}
+            </p>
+          )}
         </div>
 
         <button
-          onClick={onClose}
+          onClick={() => {
+            operacao.onConfirm?.();
+            onClose();
+          }}
           className="w-full bg-primary-1 text-white py-2 rounded-lg font-semibold hover:bg-primary-2 transition"
         >
-          Fechar
+          Confirmar antes de enviar
         </button>
       </div>
     </div>

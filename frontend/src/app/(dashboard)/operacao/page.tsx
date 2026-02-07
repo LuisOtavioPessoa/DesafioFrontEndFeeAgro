@@ -3,9 +3,12 @@
 import InputField from "@/app/components/operacao/InputField";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import type { Resolver } from "react-hook-form";
 import { maskOnlyNumbers } from "@/app/utils/InputMasks";
+import { IoIosAlert } from "react-icons/io";
+import ModalConfirmarOperacao from "@/app/components/operacao/ModalConfirmarOperacao";
+import { useState } from "react";
 
 export const schema = z.object({
   toAddress: z
@@ -38,14 +41,27 @@ export default function Operacao() {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver,
   });
 
-  function onSubmit(data: FormData) {
-    console.log("Dados enviados:", data);
-  }
+const [openModalOperacao, setopenModalOperacao] = useState(false);
+const [operacaoAtual, setOperacaoAtual] = useState<FormData | null>(null);
+const [successMessage, setSuccessMessage] = useState("");
+
+function handlePreview(data: FormData){
+  setOperacaoAtual(data);
+  setopenModalOperacao(true);
+}
+
+function handleConfirm(data: FormData){
+  console.log("Dados enviados:", data);
+  setSuccessMessage("Operação realizada com sucesso!");
+  reset();
+  setOperacaoAtual(null);
+}
 
   return (
     <main className="flex items-start bg-primary-3 min-h-svh p-4 pb-8">
@@ -54,8 +70,18 @@ export default function Operacao() {
           Operações
         </h1>
 
+        <div className="flex items-center gap-3 w-full max-w-xl bg-white border-2 border-primary-1 rounded-xl p-2 shadow-sm">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full ">
+                <IoIosAlert className="text-primary-1 text-[24px]" />
+            </div>
+        
+            <p className="text-primary-4 text-sm md:text-base leading-snug">
+                Aqui você realiza suas operações e investimentos em ativos reais (RWA), definindo valores, beneficiários e detalhes de cada transação.
+            </p>
+        </div>
+
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(handlePreview)}
           className="grid grid-cols-1 gap-y-8 w-full max-w-[400px] bg-white rounded-[20px] p-6 shadow-md"
         >
           <InputField
@@ -86,7 +112,7 @@ export default function Operacao() {
 
           <InputField
             id="network"
-            label="Network (opcional)"
+            label="Blockchain"
             register={register("network")}
             error={errors.network}
           />
@@ -98,6 +124,22 @@ export default function Operacao() {
             Confirmar Operação
           </button>
         </form>
+
+        {successMessage && (
+          <div className="w-full max-w-xl bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-lg">
+            {successMessage}
+          </div>
+        )}
+
+        <ModalConfirmarOperacao
+          open = {openModalOperacao}
+          onClose={() => setopenModalOperacao(false)}
+          operacao={
+            operacaoAtual
+              ? {...operacaoAtual, onConfirm: () => handleConfirm(operacaoAtual)}
+              : null
+          }
+        />
       </div>
     </main>
   );
