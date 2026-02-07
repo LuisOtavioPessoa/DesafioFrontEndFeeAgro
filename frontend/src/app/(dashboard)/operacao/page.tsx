@@ -5,17 +5,28 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import type { Resolver } from "react-hook-form";
+import { maskOnlyNumbers } from "@/app/utils/InputMasks";
 
 export const schema = z.object({
-  toAddress: z.string().min(1, "Beneficiário obrigatório"),
+  toAddress: z
+  .string()
+  .min(1, "Beneficiário obrigatório"),
 
-  amount: z.coerce
-    .number()
-    .min(1, "Insira o valor da operação"),
+  amount: z
+  .string()
+  .min(1, "Insira o valor da operação")
+  .refine((val) => {
+    const numeric = Number(maskOnlyNumbers(val));
+    return !isNaN(numeric) && numeric > 0;
+  }, {message: "Insira um valor válido"}),
 
-  memo: z.string().min(1, "Descrição obrigatória"),
+  memo: z
+  .string()
+  .min(1, "Descrição obrigatória"),
 
-  network: z.string().optional(),
+  network: z
+  .string()
+  .optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -26,6 +37,7 @@ export default function Operacao() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
     resolver,
@@ -56,8 +68,12 @@ export default function Operacao() {
           <InputField
             id="amount"
             label="Valor"
-            type="number"
-            register={register("amount")}
+            type="text" 
+            register={register("amount", {
+              onChange(event) {
+                setValue("amount", maskOnlyNumbers(event.target.value));
+              }
+            })}
             error={errors.amount}
           />
 
