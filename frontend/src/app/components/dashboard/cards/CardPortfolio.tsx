@@ -9,15 +9,20 @@ import {
     Legend,
 } from "chart.js";
 
+import { conta } from "@/app/core/data/conta";
+import {portfolio} from "@/app/core/data/portfolio";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function CardPortfolio() {
 
+  const totalInvested = portfolio.reduce((acc, asset) => acc + asset.totalValue, 0);
+
   const data = {
-    labels: ["Soja", "Milho"],
+    labels: portfolio.map(asset => asset.assetName),
     datasets: [
         {
-            data: [65,35],
+            data: portfolio.map(asset => asset.totalValue),
             backgroundColor: ["#16A34A", "#D4AF37"], 
             borderColor: ["#fff", "#fff"],
             borderWidth: 2,
@@ -34,8 +39,9 @@ export default function CardPortfolio() {
         tooltip: {
             callbacks: {
                 label: function (tooltipItem: any) {
-                    const value = data.datasets[0].data[tooltipItem.dataIndex];
-                    return `${data.labels[tooltipItem.dataIndex]}: ${value}%`;
+                    const asset = portfolio[tooltipItem.dataIndex]
+                    const percentage = ((asset.totalValue / totalInvested) * 100).toFixed(2);
+                    return `${asset.assetName}: ${percentage}%`; 
                 },
             },
         },
@@ -61,18 +67,17 @@ export default function CardPortfolio() {
         </div>
 
         <div className="flex flex-col gap-2 mt-2">
-            <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#16A34A]"></span>
-                <p className="text-sm text-primary-4">
-                    Soja: R$ 5.070
-                </p>
-            </div>
-            <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#D4AF37]"></span>
-                <p className="text-sm text-primary-4">
-                    Milho: R$ 2.730
-                </p>
-            </div>
+           {portfolio.map((asset, index) => (
+                <div key={asset.tokenSymbol} className="flex items-center gap-2">
+                    <span
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: index === 0 ? "#16A34A" : "#D4AF37" }}
+                    ></span>
+                    <p className="text-sm text-primary-4">
+                        {asset.assetName}: R$ {asset.totalValue.toLocaleString("pt-BR")}
+                    </p>
+                </div>
+            ))}  
         </div>
     </div>
   );

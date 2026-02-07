@@ -1,5 +1,5 @@
 import { FaWallet } from "react-icons/fa";
-
+import { conta } from "@/app/core/data/conta";
 
 export default function CardSaldoTotal() {
   return (
@@ -15,7 +15,7 @@ export default function CardSaldoTotal() {
         </div>
 
         <h1 className="text-primary-4 text-2xl font-bold">
-            R$ 12.450,90
+            R$ {conta[0]?.availableBalance.toLocaleString("pt-BR", { minimumFractionDigits: 2 }) || "0,00"}
         </h1>
 
         <p className="text-[14px] rounded-[15px] border-2 border-[var(--color-primary-1)] bg-[var(--color-primary-1)]/10 text-black px-3 py-1 w-fit">
