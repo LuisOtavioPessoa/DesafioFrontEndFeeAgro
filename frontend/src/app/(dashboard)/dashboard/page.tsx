@@ -7,6 +7,8 @@ import { IoIosAlert } from "react-icons/io";
 
 import { conta } from "@/app/core/data/conta";
 import {portfolio} from "@/app/core/data/portfolio";
+import CardRentabilidade from "@/app/components/dashboard/cards/CardRentabilidade";
+import CardPrecoAtual from "@/app/components/dashboard/cards/CardPrecoAtual";
 
 export default function Dashboard() {
   return (
@@ -27,13 +29,15 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <CardSaldoTotal/>
           <CardTotalInvestido/>
           <CardPortfolio/>
+          <CardRentabilidade/>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <CardPrecoAtual/>
           <CardIndicadoresAgro/>
           <CardStatus/>
         </div>

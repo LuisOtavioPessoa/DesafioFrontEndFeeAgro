@@ -49,7 +49,7 @@ export default function CardPortfolio() {
   };
 
   return (
-    <div className="w-full flex flex-col  gap-4 min-w-[250px] min-h-[250px] bg-white rounded-[20px] p-6 shadow-md">
+    <div className="w-full flex flex-col  gap-4 min-w-[250] min-h-[250] bg-white rounded-[20px] p-6 shadow-md md:max-h-[310]">
 
         <div className="flex items-center gap-2">
             <BsFileBarGraphFill

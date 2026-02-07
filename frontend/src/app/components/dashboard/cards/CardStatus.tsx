@@ -6,7 +6,7 @@ import { HiDocumentSearch } from "react-icons/hi";
 
 export default function CardStatus() {
   return (
-    <div className="w-full flex flex-col  gap-4 min-w-[250px] min-h-[250px] bg-white rounded-[20px] p-6 shadow-md">
+    <div className="w-full flex flex-col  gap-4 min-w-[250] min-h-[230] bg-white rounded-[20px] p-6 shadow-md md:max-h-[220]">
 
         <div className="flex items-center justify-between">
             <HiDocumentSearch
@@ -35,7 +35,7 @@ export default function CardStatus() {
             </div>
       </div>
 
-            <button className="mt-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-white font-semibold py-2 px-4 rounded-[15px] shadow-md hover:brightness-105 transition">
+            <button className="mt-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-white font-semibold py-2 px-4 rounded-[15px] shadow-md hover:brightness-105 transition md:mt-0 md:py-2">
                 Atualizar KYC
             </button>
     </div>

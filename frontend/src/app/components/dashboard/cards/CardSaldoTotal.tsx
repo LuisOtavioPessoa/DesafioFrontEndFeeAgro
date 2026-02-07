@@ -3,7 +3,8 @@ import { conta } from "@/app/core/data/conta";
 
 export default function CardSaldoTotal() {
   return (
-    <div className="w-full flex flex-col  gap-4 min-w-62.5 min-h-45 bg-white rounded-[20px] p-6 shadow-md">
+    <div className="w-full flex flex-col  gap-4 min-w-[250] min-h-[180]  bg-white rounded-[20px] p-6 shadow-md
+    md:max-h-[200] md:gap-6">
 
         <div className="flex items-center gap-2">
             <FaWallet
@@ -19,7 +20,7 @@ export default function CardSaldoTotal() {
         </h1>
 
         <p className="text-[14px] rounded-[15px] border-2 border-[var(--color-primary-1)] bg-[var(--color-primary-1)]/10 text-black px-3 py-1 w-fit">
-        +2,4% este mês
+        +38.89% este mês
         </p>
       
     </div>
