@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { transacao, Transaction } from "@/app/core/data/transacao";
 import ModalTransacao from "@/app/components/transacoes/ModalTransacao";
-import { IoIosAlert , IoMdSwap } from "react-icons/io";
-
+import { IoIosAlert , IoMdSwap, IoIosCloseCircle } from "react-icons/io";
+import { useRouter } from 'next/navigation';
 
 export default function Transacoes() {
+
+const router = useRouter();
 
 const [filterType, setFilterType] = useState("Todos");
 const [filterStatus, setFilterStatus] = useState("Todos");
@@ -59,6 +61,11 @@ function handleOpenModal(tx: Transaction){
 function handleCloseModal(){
     setSelectedTransaction(null);
     setopenModalTransacao(false);
+}
+
+
+function handleSubmit() {
+    router.push('/operacao'); 
 }
 
   return (
@@ -138,7 +145,17 @@ function handleCloseModal(){
         </div>
 
         <div className="flex flex-col gap-2">
-            {sortedTransactions.map(tx => (
+        {sortedTransactions.length === 0 ? (
+            <div className="flex items-center w-full max-w-xl bg-white border-2 border-primary-1 rounded-xl p-2 shadow-sm">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full ">
+                <IoIosCloseCircle className="text-primary-1 text-[24px]" />
+            </div>
+
+            <p className="text-primary-4 text-sm md:text-base leading-snug">
+                Nenhuma transação encontrada.
+            </p>
+        </div>
+        ) : sortedTransactions.map(tx => (
                 <div
                     key={tx.id}
                     className="relative flex items-center min-w-[350px] min-h-[100px] justify-between p-4  bg-white rounded-lg shadow hover:shadow-md transition gap-3"
@@ -172,6 +189,15 @@ function handleCloseModal(){
                     </div>
                 </div>
             ))}
+
+            <button
+            type="button"
+            onClick={handleSubmit}
+            className="w-full bg-primary-1 text-white font-semibold py-3 rounded-lg hover:bg-primary-2 transition"
+          >
+            Nova Operação
+          </button>
+            
         </div>
             <ModalTransacao
             open={openModalTransacao}
