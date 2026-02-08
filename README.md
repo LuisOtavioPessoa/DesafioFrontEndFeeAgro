@@ -133,7 +133,7 @@ O sistema simula funcionalidades típicas de um banco digital como:
 - Lista de ativos tokenizados (ex: Soja, Milho)
 - Quantidade, preço e valor total
 
-✅ Transaçõe
+✅ Transações
 - Lista de transações com status (Concluída, Pendente, Cancelada)
 - Modal para visualizar detalhes completos de uma transação
 
