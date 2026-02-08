@@ -35,7 +35,7 @@ export default function CardStatus() {
             </div>
       </div>
 
-            <button className="mt-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-white font-semibold py-2 px-4 rounded-[15px] shadow-md hover:brightness-105 transition md:mt-0 md:py-2">
+            <button className="mt-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] text-white font-semibold py-2 px-4 rounded-[15px] shadow-md hover:brightness-105 transition md:mt-0 md:py-2 md:text-[14px]">
                 Atualizar KYC
             </button>
     </div>

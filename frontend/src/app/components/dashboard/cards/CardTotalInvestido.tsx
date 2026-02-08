@@ -3,7 +3,7 @@ import {portfolio} from "@/app/core/data/portfolio";
 
 export default function CardTotalInvestido() {
   return (
-    <div className="w-full flex flex-col  gap-4 min-w-62.5 min-h-45 bg-white rounded-[20px] p-6 shadow-md md:max-h-[200] md:max-w-[270]  md:gap-6">
+    <div className="w-full flex flex-col  gap-4 min-w-62.5 min-h-45 bg-white rounded-[20px] p-6 shadow-md md:max-h-[220] md:max-w-[270]  md:gap-6">
 
         <div className="flex items-center gap-2">
             <RiMoneyDollarCircleLine

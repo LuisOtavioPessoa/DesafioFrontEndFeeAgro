@@ -4,7 +4,7 @@ import { conta } from "@/app/core/data/conta";
 export default function CardSaldoTotal() {
   return (
     <div className="w-full flex flex-col  gap-4 min-w-[250] min-h-[180]  bg-white rounded-[20px] p-6 shadow-md
-    md:max-h-[200] md:max-w-[270] md:gap-6">
+    md:max-h-[220] md:max-w-[270] md:gap-6">
 
         <div className="flex items-center gap-2">
             <FaWallet
