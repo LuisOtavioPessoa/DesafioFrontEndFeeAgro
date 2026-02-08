@@ -55,8 +55,8 @@ export default function CardPortfolio() {
             <BsFileBarGraphFill
                 className="text-[25px]  text-primary-1"
             />
-            <p className="text-primary-4 text-[18px]">
-                Portfolio Agro:
+            <p className="text-primary-4 text-[18px] font-montserrat">
+                Portfolio Agro
             </p>
         </div>
 

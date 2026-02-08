@@ -14,7 +14,7 @@ export default function Dashboard() {
     <main className='flex items-start  bg-primary-3 min-h-svh p-4 pb-8'>
       <div className="flex flex-col items-center gap-6 w-full max-w-6xl mx-auto">
 
-        <h1 className="text-4xl md:text-5xl font-bold text-primary-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-primary-4 font-montserrat">
           Dashboard
         </h1>
 

@@ -10,8 +10,8 @@ export default function CardSaldoTotal() {
             <FaWallet
                 className="text-[20px]  text-primary-1"
             />
-            <p className="text-primary-4 text-[18px]">
-                Saldo Total:
+            <p className="text-primary-4 text-[18px] font-montserrat">
+                Saldo Total
             </p>
         </div>
 

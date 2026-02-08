@@ -16,8 +16,8 @@ const lucroLiquido = (conta[0]?.availableBalance || 0) - totalInvested;
             <MdOutlineQueryStats
                  className="text-[24px]  text-primary-1"
             /> 
-            <p className="text-primary-4 text-[18px]">
-                Indicadores Agro:
+            <p className="text-primary-4 text-[18px] font-montserrat">
+                Indicadores Agro
             </p>  
         </div>
 

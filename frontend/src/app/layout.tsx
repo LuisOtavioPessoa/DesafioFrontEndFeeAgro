@@ -13,8 +13,8 @@ import "./globals.css";
 // });
 
 export const metadata: Metadata = {
-  title: "DESAFIO",
-  description: "Desafio Frontend",
+  title: "RWA Bank | Agro + Web3",
+  description: "Acompanhe saldo, portfólio e transações em ativos reais tokenizados com uma experiência moderna e segura.",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="font-inter"
       >
         {children}
       </body>

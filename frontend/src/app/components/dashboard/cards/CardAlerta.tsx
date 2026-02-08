@@ -13,7 +13,7 @@ export default function CardAlerta() {
             <IoMdAlert
                  className="text-[24px]  text-primary-1"
             /> 
-            <p className="text-primary-4 text-[18px]">
+            <p className="text-primary-4 text-[18px] font-montserrat">
                 Alertas
             </p>
         </div>
@@ -29,7 +29,7 @@ export default function CardAlerta() {
             </div>
             <div className="flex items-center gap-2 text-sm">
                 <FaLightbulb  className="text-[#D4AF37] text-[15px]" />
-                <span>EDiversifique para reduzir risco</span>
+                <span>Diversifique para reduzir risco</span>
             </div>
       </div>
     </div>

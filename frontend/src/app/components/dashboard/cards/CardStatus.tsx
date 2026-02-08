@@ -12,7 +12,7 @@ export default function CardStatus() {
             <HiDocumentSearch
                  className="text-[24px]  text-primary-1"
             /> 
-            <p className="text-primary-4 text-[18px]">
+            <p className="text-primary-4 text-[18px] font-montserrat">
                 KYC Status
             </p>
             <span className="px-2 py-1 rounded-[15px] bg-yellow-500/20 text-yellow-800 font-semibold text-sm">
