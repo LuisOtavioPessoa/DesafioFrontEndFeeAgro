@@ -4,10 +4,10 @@ import { MdOutlinePriceChange } from "react-icons/md";
 import { portfolio } from "@/app/core/data/portfolio";
 
 export default function CardPrecoAtual() {
-  const variacaoFake = [2.4, -1.1]; // pode inventar os valores aqui
+  const variacaoFake = [2.4, -1.1]; 
 
   return (
-    <div className="w-full flex flex-col gap-4 min-w-[250] min-h-[200] bg-white rounded-[20px] p-6 shadow-md md:max-h-[200] md:gap-6">
+    <div className="w-full flex flex-col gap-4 min-w-[250] min-h-[200] bg-white rounded-[20px] p-6 shadow-md md:max-h-[200] md:max-w-[270]  md:gap-6">
       <div className="flex items-center gap-2">
         <MdOutlinePriceChange className="text-[24px] text-primary-1" />
         <p className="text-primary-4 text-[18px]">

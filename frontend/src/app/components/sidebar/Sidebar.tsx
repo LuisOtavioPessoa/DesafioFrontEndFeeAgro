@@ -19,7 +19,7 @@ export default function Sidebar() {
     useControlSidebar();
 
   const theme = useTheme();
-  const breakpointScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const breakpointScreen = useMediaQuery("(min-width: 768px)");
 
   const [mounted, setMounted] = useState(false);
   const [isSidebarHover, setIsSidebarHover] = useState(false);

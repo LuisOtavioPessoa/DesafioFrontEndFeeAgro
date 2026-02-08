@@ -6,7 +6,7 @@ import { HiDocumentSearch } from "react-icons/hi";
 
 export default function CardStatus() {
   return (
-    <div className="w-full flex flex-col  gap-4 min-w-[250] min-h-[230] bg-white rounded-[20px] p-6 shadow-md md:max-h-[220]">
+    <div className="w-full flex flex-col  gap-4 min-w-[250] min-h-[230] bg-white rounded-[20px] p-6 shadow-md md:max-h-[220] md:max-w-[270] ">
 
         <div className="flex items-center justify-between">
             <HiDocumentSearch

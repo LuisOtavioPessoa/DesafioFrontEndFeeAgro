@@ -4,9 +4,7 @@ import CardSaldoTotal from "@/app/components/dashboard/cards/CardSaldoTotal"
 import CardStatus from "@/app/components/dashboard/cards/CardStatus";
 import CardTotalInvestido from "@/app/components/dashboard/cards/CardTotalInvestido";
 import { IoIosAlert } from "react-icons/io";
-
 import { conta } from "@/app/core/data/conta";
-import {portfolio} from "@/app/core/data/portfolio";
 import CardRentabilidade from "@/app/components/dashboard/cards/CardRentabilidade";
 import CardPrecoAtual from "@/app/components/dashboard/cards/CardPrecoAtual";
 
@@ -29,14 +27,14 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid gap-4 w-full grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
           <CardSaldoTotal/>
           <CardTotalInvestido/>
           <CardPortfolio/>
           <CardRentabilidade/>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid gap-4 w-full grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
           <CardPrecoAtual/>
           <CardIndicadoresAgro/>
           <CardStatus/>
