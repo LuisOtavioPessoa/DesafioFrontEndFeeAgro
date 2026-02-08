@@ -82,7 +82,7 @@ function handleConfirm(data: FormData){
 
         <form
           onSubmit={handleSubmit(handlePreview)}
-          className="grid grid-cols-1 gap-y-8 w-full max-w-[400px] bg-white rounded-[20px] p-6 shadow-md"
+          className="grid grid-cols-1 gap-y-8 w-full max-w-[400] bg-white rounded-[20px] p-6 shadow-md"
         >
           <InputField
             id="toAddress"
