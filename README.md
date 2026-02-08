@@ -48,6 +48,11 @@ npm run lint
 ## ⚙️ Escolhas Técnicas (Decisões de Arquitetura)
 ### **✅ Next.js com App Router**:  
 O projeto utiliza a estrutura moderna do Next.js (/app), facilitando organização de páginas e layouts.
+### **✅ React + TypeScript**:  
+A tipagem segura proporciona:
+- Autocompletar no editor
+- Detecção de erros em tempo de desenvolvimento
+- Maior manutenção e escalabilidade do código
 ### **✅ Componentização e reutilização**:  
 A interface foi construída com componentes separados por domínio, principalmente no dashboard e modais.
 ### **✅ Tailwind CSS**:  
@@ -61,6 +66,16 @@ Separar dados em arquivos próprios facilita:
 - leitura do projeto
 - manutenção
 - futura integração com API
+### **✅ react-hook-form + Zod**:  
+Validação de formulários robusta, tipada e integrada ao React, oferecendo:
+- Feedback de erros em tempo real
+- Integração com TypeScript
+- Facilidade para expandir campos e regras de validação
+### **✅ react-chartjs-2 + Chart.js**:  
+Gráficos dinâmicos e responsivos para visualização de dados de portfólio, com:
+- Configurações flexíveis de cores e estilos
+- Suporte a tooltips e interações
+- Facilidade para adicionar novos tipos de gráficos
 ### **✅ Zustand para controle de layout mobile**:  
 O menu mobile é controlado globalmente usando Zustand, evitando prop drilling e mantendo o layout limpo.
 
@@ -69,13 +84,19 @@ O menu mobile é controlado globalmente usando Zustand, evitando prop drilling e
 **Vantagem:** desenvolvimento rápido e fácil demonstração <br/>
 **Desvantagem:** não representa persistência real de banco ou blockchain
 ### **🔸 Variação de preços simulada**:  
-Os percentuais de variação são valores fake para demonstrar comportamento de dashboard.
+**Vantagem:** Permite mostrar o comportamento do dashboard e cards. <br/>
+**Desvantagem:** Valores não refletem dados reais do mercado, então gráficos e indicadores não são 100% precisos.
 ### **🔸 Sem integração real Web3**:  
 O envio para endereço Ethereum é apenas simulado para fins de interface e fluxo.
+**Vantagem:** Permite foco no front-end e experiência do usuário sem complexidade de blockchain.<br/>
+**Desvantagem:** Operações Ethereum e tokens são apenas simuladas.
 ### **🔸 Modais implementados manualmente**:  
-Os modais foram feitos sem bibliotecas externas.
+Os modais foram feitos sem bibliotecas externas.<br/>
 **Vantagem:** maior controle visual <br/>
 **Desvantagem:** acessibilidade e animações poderiam ser mais completas
+### **🔸 Charts e dashboards com react-chartjs-2**:  
+**Vantagem:** Flexível e visualmente completo. <br/>
+**Desvantagem:** Configuração de estilo e cores é manual; não há atualizações em tempo real nem integração automática com dados dinâmicos.
 
 ## 🔥 O que eu melhoraria com mais tempo
 Se tivesse mais tempo de desenvolvimento, as melhorias ideais seriam:
@@ -87,7 +108,7 @@ Se tivesse mais tempo de desenvolvimento, as melhorias ideais seriam:
 ✅ Página de perfil do usuário e configurações <br/>
 ✅ Implementação de gráficos (ex: Recharts) <br/>
 ✅ Paginação e filtros avançados de transações <br/>
-✅ Melhorias de acessibilidade (focus trap em modais, aria labels) <br/>
+✅ Melhorias de acessibilidade <br/>
 ✅ Dark mode <br/>
 ✅ Testes automatizados (Jest / Testing Library) <br/>
 
