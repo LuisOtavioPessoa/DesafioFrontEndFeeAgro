@@ -87,7 +87,7 @@ O menu mobile é controlado globalmente usando Zustand, evitando prop drilling e
 **Vantagem:** Permite mostrar o comportamento do dashboard e cards. <br/>
 **Desvantagem:** Valores não refletem dados reais do mercado, então gráficos e indicadores não são 100% precisos.
 ### **🔸 Sem integração real Web3**:  
-O envio para endereço Ethereum é apenas simulado para fins de interface e fluxo.
+O envio para endereço Ethereum é apenas simulado para fins de interface e fluxo.<br/>
 **Vantagem:** Permite foco no front-end e experiência do usuário sem complexidade de blockchain.<br/>
 **Desvantagem:** Operações Ethereum e tokens são apenas simuladas.
 ### **🔸 Modais implementados manualmente**:  
