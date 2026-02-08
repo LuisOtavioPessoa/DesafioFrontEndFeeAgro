@@ -86,16 +86,16 @@ function handleSubmit() {
             </p>
         </div>
 
-        <div className="flex flex-col gap-4 mb-4 rounded-[20px]  bg-white min-h-[100px] min-w-[300px] p-6 border-2 border-primary-1 shadow-sm">
+        <div className="flex flex-col gap-4 mb-4 rounded-[20px]  bg-white min-h-[220] min-w-[300] p-6 border-2 border-primary-1 shadow-sm md:min-w-[400] md:min-h-[250]">
 
             <h1 className="flex items-center justify-center text-[20px] md:text-[24px] font-bold text-primary-4 ">Filtrar por:</h1>
 
             <div className="flex flex-row items-center gap-2">
-            <p className="w-[70px] text-right items-center font-semibold text-primary-4 text-[16px]">Tipo:</p>
+            <p className="w-[70] text-right items-center font-semibold text-primary-4 text-[16px] md:w-[100]">Tipo:</p>
             <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[150px] md:w-[150px]"
+                className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[150] md:w-[160]"
             >
                 <option>Todos</option>
                 <option>IN</option>
@@ -104,11 +104,11 @@ function handleSubmit() {
             </div>
 
             <div className="flex flex-row items-center gap-2">
-            <p className="w-[70px] text-right items-center font-semibold text-primary-4 text-[16px]">Status:</p>
+            <p className="w-[70] text-right items-center font-semibold text-primary-4 text-[16px] md:w-[100]">Status:</p>
             <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[150px] md:w-[150px]"
+                className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[150] md:w-[160]"
             >
                 <option>Todos</option>
                 <option>Concluída</option>
@@ -118,11 +118,11 @@ function handleSubmit() {
             </div>
 
             <div className="flex flex-row items-center gap-2">
-            <p className="w-[70px] text-right items-center font-semibold text-primary-4 text-[16px]">Data:</p>
+            <p className="w-[70] text-right items-center font-semibold text-primary-4 text-[16px] md:w-[100]">Data:</p>
             <select
                 value={filterPeriod}
                 onChange={(e) => setFilterPeriod(e.target.value)}
-                className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[150px] md:w-[150px]"
+                className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[150] md:w-[160]"
             >
                 <option>Todos</option>
                 <option>Últimos 7 dias</option>
@@ -131,12 +131,12 @@ function handleSubmit() {
             </div>
         </div>
 
-        <div className="flex items-center gap-2 min-w-[250px] max-w-xl bg-white border-2 border-primary-1 rounded-xl p-2 shadow-sm mb-4">
+        <div className="flex items-center gap-2 min-w-[250] max-w-xl bg-white border-2 border-primary-1 rounded-xl p-2 shadow-sm mb-4 md:min-w-[300] md:min-h-[70]">
           <IoMdSwap className="text-primary-1 text-[24px]" />
           <select
             value={sortAmount}
             onChange={(e) => setSortAmount(e.target.value)}
-            className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[200px]"
+            className="p-2 rounded-md border border-gray-300 bg-white text-primary-4 w-[200] md:w-[220]"
           >
             <option>Todos</option>
             <option>Maior para menor</option>
@@ -158,7 +158,7 @@ function handleSubmit() {
         ) : sortedTransactions.map(tx => (
                 <div
                     key={tx.id}
-                    className="relative flex items-center min-w-[350px] min-h-[100px] justify-between p-4  bg-white rounded-lg shadow hover:shadow-md transition gap-3"
+                    className="relative flex items-center min-w-[350] min-h-[100] justify-between p-4  bg-white rounded-lg shadow hover:shadow-md transition gap-3 md:min-w-[400] md:min-h-[120] md:p-8"
                     onClick={() => handleOpenModal(tx)}
                 >
                     <span className="absolute top-2 left-4 text-xs text-gray-500">
@@ -166,7 +166,7 @@ function handleSubmit() {
                     </span>
 
                     <div className="flex flex-col">
-                        <span className="font-semibold text-primary-4  text-[16px] max-w-[130px]">
+                        <span className="font-semibold text-primary-4  text-[16px] max-w-[130]">
                             {tx.description}
                         </span>
                         
