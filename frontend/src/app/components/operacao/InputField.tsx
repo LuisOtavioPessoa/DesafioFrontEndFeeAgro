@@ -59,7 +59,7 @@ const InputField: React.FC<InputFieldProps> = ({
             </label>
 
              {error && (
-                <span className='absolute text-right italic text-red-500 text-xs md:text-sm top-[68px] leading-3 md:leading-4 right-0'>
+                <span className='absolute text-right italic text-red-500 text-xs md:text-sm top-[68] leading-3 md:leading-4 right-0'>
                 {error.message}
                 </span>
             )} 
